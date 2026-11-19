@@ -12,8 +12,8 @@ permissions:
 
 jobs:
   build:
-    runs-on: [self-hosted, docker, high-ram]
-    timeout-minutes: 120
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
     env:
       REGISTRY: ghcr.io/tobias-weiss-ai-xr/php-fixed-images
     steps:
