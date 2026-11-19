@@ -1,0 +1,24 @@
+name: build-php-fixed-images
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["build.sh", "patches/**", ".github/workflows/build.yml"]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: [self-hosted, docker, high-ram]
+    timeout-minutes: 120
+    env:
+      REGISTRY: ghcr.io/tobias-weiss-ai-xr/php-fixed-images
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and push
+        run: bash build.sh "$REGISTRY" && bash build.sh "$REGISTRY" push
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
