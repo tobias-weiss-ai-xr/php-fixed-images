@@ -18,6 +18,7 @@ imgs=(
   "nextcloud:35.0.3-apache-php8.5.13|nextcloud"
   "mailcow-phpfpm:8.2.36|mailcow"
   "invoiceninja:5-php8.5.13|invn"
+  "gromox-core:8.4.28-20261120|gromox"
 )
 
 if [ "$MODE" = push ]; then
